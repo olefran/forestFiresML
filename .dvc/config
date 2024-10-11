@@ -1,0 +1,8 @@
+[core]
+    autostage = true
+    remote = local_remote
+['remote "myremote"']
+    url = gdrive://15xz5NThnApe_VqB0ATk5bEzIFixR6Sfa
+    gdrive_acknowledge_abuse = true
+['remote "local_remote"']
+    url = C:/Users/LuisAngel/Downloads/dvc_ForestFire_Storage

@@ -62,12 +62,15 @@ Proyecto de Operaciones de Aprendizaje Automático 2024 -  Equipo 31
 
 ## Pipeline
   * [Execution]
+
 To execute the pipe line the following is required:
+
 -  Install requirements with pip (it is recomended to use a pip-env)
    `pip install -r requirements.txt`
--  the following folder structure is expected (it is not created automatically)
+-  The following folder structure is expected (it is not created automatically)
 
 ```
+├── main.py
 ├── data
 │   ├── external       <- Data from third party sources.
 │   ├── interim        <- Intermediate data that has been transformed.
@@ -75,4 +78,5 @@ To execute the pipe line the following is required:
 │   └── raw            <- The original, immutable data dump.
 │
 ```
-- (Optional) for traking results an mlflow server is expected on http://localhost:5000 by default.
+- Run `python main.py`
+- (Optional) For tracking results an mlflow server is expected on http://localhost:5000 by default.

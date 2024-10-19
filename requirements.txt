@@ -5,6 +5,7 @@ loguru
 mkdocs
 pip
 python-dotenv
+mlflow
 tqdm
 typer
 -e .

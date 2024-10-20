@@ -1,0 +1,49 @@
+stages:
+  ingest_data:
+    cmd: python refactoring/ingest_data.py ${data.filepath}forest_fires_df.csv
+    deps:
+      - refactoring/ingest_data.py
+    outs:
+      - ${data.filepath}forest_fires_df.csv
+
+  clean_data:
+    cmd: python refactoring/clean_data.py ${data.filepath}forest_fires_df.csv ${data.processed}forest_fires_prepared_df.csv
+    deps:
+      - refactoring/clean_data.py
+      - ${data.filepath}forest_fires_df.csv
+    outs:
+      - ${data.processed}forest_fires_prepared_df.csv
+
+  preprocess:
+    cmd: python refactoring/preprocess_data.py ${data.processed}forest_fires_prepared_df.csv ${data.processed}X_train_processed.csv ${data.processed}X_test_processed.csv ${data.processed}y_train_processed.csv ${data.processed}y_test_processed.csv
+    deps:
+      - refactoring/preprocess_data.py
+      - ${data.processed}forest_fires_prepared_df.csv
+    outs:
+      - ${data.processed}X_train_processed.csv
+      - ${data.processed}X_test_processed.csv
+      - ${data.processed}y_train_processed.csv
+      - ${data.processed}y_test_processed.csv
+
+  train_models:
+    cmd: python refactoring/train_models.py params.yaml ${data.processed}X_train_processed.csv ${data.processed}y_train_processed.csv ${data.processed}X_test_processed.csv ${data.processed}y_test_processed.csv
+    deps:
+      - refactoring/train_models.py
+      - params.yaml
+      - ${data.processed}X_train_processed.csv
+      - ${data.processed}y_train_processed.csv
+      - ${data.processed}X_test_processed.csv
+      - ${data.processed}y_test_processed.csv
+    outs:
+      - models/LinearRegression.pkl
+      - models/RandomForestRegressor.pkl
+      - models/SVM.pkl
+      - models/GradientBoostingRegressor.pkl
+
+  evaluate_models:
+    cmd: python refactoring/evaluate_models.py params.yaml
+    deps:
+      - refactoring/evaluate_models.py
+      - params.yaml
+    outs:
+      - models/final_model.pkl

@@ -1,0 +1,4 @@
+data:
+  filepath: data/raw/
+  processed: data/processed/
+  models: models/

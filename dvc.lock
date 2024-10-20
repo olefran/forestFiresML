@@ -1,0 +1,60 @@
+schema: '2.0'
+stages:
+  ingest_data:
+    cmd: python refactoring/ingest_data.py data/raw/forest_fires_df.csv
+    deps:
+    - path: refactoring/ingest_data.py
+      hash: md5
+      md5: 3ba136232cd66093f1016276907bb25d
+      size: 470
+    outs:
+    - path: data/raw/forest_fires_df.csv
+      hash: md5
+      md5: 7736d4cedf4fab87e882470be3115051
+      size: 28118
+  clean_data:
+    cmd: python refactoring/clean_data.py data/raw/forest_fires_df.csv data/processed/forest_fires_prepared_df.csv
+    deps:
+    - path: data/raw/forest_fires_df.csv
+      hash: md5
+      md5: 7736d4cedf4fab87e882470be3115051
+      size: 28118
+    - path: refactoring/clean_data.py
+      hash: md5
+      md5: 76e77b2d11942fd5b8ca7b4756c7a6a5
+      size: 1129
+    outs:
+    - path: data/processed/forest_fires_prepared_df.csv
+      hash: md5
+      md5: 6bbec3772025cb1cbc440388eb498ef6
+      size: 29318
+  preprocess:
+    cmd: python refactoring/preprocess_data.py data/processed/forest_fires_prepared_df.csv
+      data/processed/X_train_processed.csv data/processed/X_test_processed.csv data/processed/y_train_processed.csv
+      data/processed/y_test_processed.csv
+    deps:
+    - path: data/processed/forest_fires_prepared_df.csv
+      hash: md5
+      md5: 6bbec3772025cb1cbc440388eb498ef6
+      size: 29318
+    - path: refactoring/preprocess_data.py
+      hash: md5
+      md5: ef9002bb9b432dc5e5220631707ad367
+      size: 1966
+    outs:
+    - path: data/processed/X_test_processed.csv
+      hash: md5
+      md5: 86c7c6aec09ce4b83482ae491b14adb0
+      size: 16245
+    - path: data/processed/X_train_processed.csv
+      hash: md5
+      md5: 6ccd8ac18ae4f9f5df9fbb12451279ac
+      size: 64775
+    - path: data/processed/y_test_processed.csv
+      hash: md5
+      md5: 0a36c46ddb587bcc1c81439129c92045
+      size: 966
+    - path: data/processed/y_train_processed.csv
+      hash: md5
+      md5: 128bd43f7e354cbeded567aef56dac23
+      size: 4380

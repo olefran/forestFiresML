@@ -49,7 +49,7 @@ class FF_model:
 
     def data_prep(self):
 
-        data = data_.dropna()
+        data = self.data_.dropna()
 
         print(f"\nNúmero de filas duplicadas: {data.duplicated().sum()}")
         data = data.drop_duplicates()

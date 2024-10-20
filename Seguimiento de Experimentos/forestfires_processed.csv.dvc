@@ -1,0 +1,5 @@
+outs:
+- md5: 6bbec3772025cb1cbc440388eb498ef6
+  size: 29318
+  hash: md5
+  path: forestfires_processed.csv

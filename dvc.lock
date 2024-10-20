@@ -58,3 +58,64 @@ stages:
       hash: md5
       md5: 128bd43f7e354cbeded567aef56dac23
       size: 4380
+  train_models:
+    cmd: python refactoring/train_models.py params.yaml data/processed/X_train_processed.csv
+      data/processed/y_train_processed.csv data/processed/X_test_processed.csv data/processed/y_test_processed.csv
+    deps:
+    - path: data/processed/X_test_processed.csv
+      hash: md5
+      md5: 86c7c6aec09ce4b83482ae491b14adb0
+      size: 16245
+    - path: data/processed/X_train_processed.csv
+      hash: md5
+      md5: 6ccd8ac18ae4f9f5df9fbb12451279ac
+      size: 64775
+    - path: data/processed/y_test_processed.csv
+      hash: md5
+      md5: 0a36c46ddb587bcc1c81439129c92045
+      size: 966
+    - path: data/processed/y_train_processed.csv
+      hash: md5
+      md5: 128bd43f7e354cbeded567aef56dac23
+      size: 4380
+    - path: params.yaml
+      hash: md5
+      md5: b1425f7c115c204d132a57920ab819bf
+      size: 77
+    - path: refactoring/train_models.py
+      hash: md5
+      md5: 98722b79efb80545f90b8832e8c50b58
+      size: 2580
+    outs:
+    - path: models/GradientBoostingRegressor.pkl
+      hash: md5
+      md5: e5b3b7c51b41d1881c3cb223e484fdfb
+      size: 192648
+    - path: models/LinearRegression.pkl
+      hash: md5
+      md5: dd7f3076c83f7e5d93852a25811350d6
+      size: 1199
+    - path: models/RandomForestRegressor.pkl
+      hash: md5
+      md5: b3a4c2ef14a9fe6c4cd55dec9e36f03b
+      size: 1540609
+    - path: models/SVM.pkl
+      hash: md5
+      md5: 4866cd0434777389d1ac8d72d5da6885
+      size: 18316
+  evaluate_models:
+    cmd: python refactoring/evaluate_models.py params.yaml
+    deps:
+    - path: params.yaml
+      hash: md5
+      md5: b1425f7c115c204d132a57920ab819bf
+      size: 77
+    - path: refactoring/evaluate_models.py
+      hash: md5
+      md5: b89f3f474d97cd72c14bc433ac3a1b5c
+      size: 1132
+    outs:
+    - path: models/final_model.pkl
+      hash: md5
+      md5: be6c877895247d0e8992fa70b3dc1171
+      size: 192712

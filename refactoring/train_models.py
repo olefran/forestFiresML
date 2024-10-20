@@ -12,7 +12,7 @@ import mlflow
 
 class TrainModels():
     def __init__(self, params_path):
-        with open("params.yaml", 'r') as ymlfile:
+        with open(params_path, 'r') as ymlfile:
             self.params = yaml.safe_load(ymlfile)
 
         self.model_dir = self.params['data']['models']
@@ -75,4 +75,4 @@ if __name__ == '__main__':
     y_test_path = sys.argv[5]
 
     trm = TrainModels(params_path)
-    trm.train_models(params_path, X_train_path, y_train_path, X_test_path, y_test_path)
+    trm.train_models(X_train_path, y_train_path, X_test_path, y_test_path)

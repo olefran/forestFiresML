@@ -4,13 +4,34 @@ import joblib
 import mlflow
 
 class EvaluateModels():
+    """
+    A class representing EvaluateModels object.
+
+    Attributes:
+        params (Dict): Dictionary of params from yaml params file.
+        model_dir (str): Path for the models
+    """
     def __init__(self, params_path):
-        with open("params.yaml", 'r') as ymlfile:
+        """
+        Initializes a EvaluateModels object, reading data from the params yamkl file path.
+
+        Parameters:
+            params_path (str): The path of params yaml file.
+        """
+        with open(params_path, 'r') as ymlfile:
             self.params = yaml.safe_load(ymlfile)
 
         self.model_dir = self.params['data']['models']
     
     def evaluate_models(self):
+        """
+        Perform evaluating models, final defining champion model.
+
+        Parameters:
+
+        Returns:
+
+        """
         # Fetch all runs from the experiment
         experiment_id = mlflow.get_experiment_by_name("MLForestFires").experiment_id
         runs = mlflow.search_runs(experiment_ids=[experiment_id])

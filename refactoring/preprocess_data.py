@@ -5,10 +5,33 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.model_selection import train_test_split
 
 class PreprocessData():
+    """
+    A class representing PreprocessData object.
+
+    Attributes:
+        data_path (str): The path of the data cleaned.
+    """
     def __init__(self, data_path):
+        """
+        Initializes a PreprocessData object, reading data from the csv file path.
+
+        Parameters:
+            data_path (str): The path of the data cleaned.
+        """
         self.data_ = pd.read_csv(data_path)
 
     def preprocess_data(self):
+        """
+        Perform data preprocess of the data.
+
+        Parameters:
+
+        Returns:
+            X_train (DataFrame): Dataset of train data
+            X_test (DataFrame): Dataset of test data
+            y_train (DataFrame): Dataset of target feature for train data
+            y_test (DataFrame): Dataset of target feature for test data
+        """
         processed_data = self.data_.dropna()
 
         processed_data['area'] = np.log(processed_data['area'] + 1)

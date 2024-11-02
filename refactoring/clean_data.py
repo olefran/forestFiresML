@@ -3,10 +3,30 @@ import pandas as pd
 import sys
 
 class CleanData():
+    """
+    A class representing CleanData object.
+
+    Attributes:
+        data_path (str): The path od the data ingested.
+    """
     def __init__(self, data_path):
+        """
+        Initializes a CleanData object, reading data from the csv file path.
+
+        Parameters:
+            data_path (str): The path od the data ingested.
+        """
         self.data_ = pd.read_csv(data_path)
 
     def clean_data(self):
+        """
+        Perform data cleaning process.
+
+        Parameters:
+
+        Returns:
+            DataFrame: Data cleaned as DataFrame.
+        """
         data = self.data_.dropna()
 
         print(f"\nNúmero de filas duplicadas: {data.duplicated().sum()}")

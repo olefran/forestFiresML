@@ -11,7 +11,20 @@ import joblib
 import mlflow
 
 class TrainModels():
+    """
+    A class representing TrainModels object.
+
+    Attributes:
+        params (Dict): Dictionary of params from yaml params file.
+        model_dir (str): Path for the models
+    """
     def __init__(self, params_path):
+        """
+        Initializes a TrainModels object, reading data from the params yamkl file path.
+
+        Parameters:
+            params_path (str): The path of params yaml file.
+        """
         with open(params_path, 'r') as ymlfile:
             self.params = yaml.safe_load(ymlfile)
 
@@ -23,6 +36,18 @@ class TrainModels():
             X_test_path, y_test_path, 
             mlserverURI="http://127.0.0.1:5000"
     ):
+        """
+        Perform training models, logging artifacts and results using MLFlow.
+
+        Parameters:
+            X_train_path (str): Path for csv train data
+            y_train_path (str): Path for csv target feature for train data
+            X_test_path (str): Path for csv test data
+            y_test_path (str): Path for csv target feature for test data
+
+        Returns:
+
+        """
         X_train = pd.read_csv(X_train_path)
         y_train = pd.read_csv(y_train_path)
         X_test = pd.read_csv(X_test_path)

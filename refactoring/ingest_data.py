@@ -5,6 +5,9 @@ import sys
 class DataIngest():
     @staticmethod
     def data_ingest():
+        """
+        Perform data ingestion from remote source.
+        """
         # 162 for forest fires
         dataset_ = fetch_ucirepo(id=162)
         X = dataset_.data.features

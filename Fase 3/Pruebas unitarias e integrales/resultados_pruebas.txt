@@ -1,0 +1,65 @@
+test_complete_model_pipeline (__main__.TestFase3.test_complete_model_pipeline)
+Ejecuta el flujo de entrenamiento y evaluación completo para cada modelo en el diccionario 'models'. ... Prueba test_complete_model_pipeline:
+ - Objetivo: Validar que el flujo de entrenamiento y evaluación se ejecute correctamente para cada modelo.
+ - Resultado: Pasó.
+
+ok
+test_data_integrity (__main__.TestFase3.test_data_integrity)
+Verifica que no existan valores nulos en el dataset. ... Prueba test_data_integrity:
+ - Objetivo: Confirmar que el dataset no contiene valores nulos.
+ - Resultado: Pasó. Sin valores nulos.
+
+ok
+test_data_loading (__main__.TestFase3.test_data_loading)
+Verifica que el archivo de datos se cargue correctamente como un DataFrame de pandas y que no esté vacío. ... Prueba test_data_loading:
+ - Objetivo: Verificar que el archivo de datos se cargue correctamente y no esté vacío.
+ - Resultado: Pasó. Es un DataFrame no vacío.
+
+ok
+test_evaluate_and_log_model (__main__.TestFase3.test_evaluate_and_log_model)
+Evalúa cada modelo en el diccionario 'models' y registra sus métricas RMSE y R². ... Prueba test_evaluate_and_log_model:
+ - Objetivo: Evaluar y registrar cada modelo con precisión aceptable en RMSE y formato float en R².
+   - Linear Regression:
+       - Resultado RMSE: Pasó. Valor RMSE=0.9598209079707113
+       - Resultado R²: Pasó. Valor R²=-0.09585080778158339
+
+   - Decision Tree:
+       - Resultado RMSE: Pasó. Valor RMSE=1.3474090368745084
+       - Resultado R²: Pasó. Valor R²=-1.159583156682146
+
+   - Random Forest:
+       - Resultado RMSE: Pasó. Valor RMSE=0.9898031912349464
+       - Resultado R²: Pasó. Valor R²=-0.1653831097364904
+
+   - SVM:
+       - Resultado RMSE: Pasó. Valor RMSE=1.011764436529863
+       - Resultado R²: Pasó. Valor R²=-0.21767065472046698
+
+   - Gradient Boosting:
+       - Resultado RMSE: Pasó. Valor RMSE=1.0216572024038024
+       - Resultado R²: Pasó. Valor R²=-0.24159919422326204
+
+ok
+test_one_hot_encoding (__main__.TestFase3.test_one_hot_encoding)
+Comprueba que el One-Hot Encoding se aplica correctamente a las columnas categóricas 'month' y 'day'. ... Prueba test_one_hot_encoding:
+ - Objetivo: Validar que el One-Hot Encoding se aplica correctamente a las variables categóricas.
+ - Resultado: Pasó. Columnas generadas correctamente.
+
+ok
+test_train_test_split (__main__.TestFase3.test_train_test_split)
+Verifica que los datos se dividan correctamente en conjuntos de entrenamiento y prueba. ... Prueba test_train_test_split:
+ - Objetivo: Comprobar que los datos se dividen correctamente en entrenamiento y prueba.
+ - Resultado: Pasó. División correcta.
+
+ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 43.168s
+
+OK
+
+Resumen de Pruebas:
+Total de pruebas ejecutadas: 6
+Errores: 0
+Fallos: 0
+Todas las pruebas pasaron exitosamente.

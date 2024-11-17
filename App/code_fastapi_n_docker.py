@@ -81,10 +81,10 @@ $headers = @{
 }
 
 $body = @{
-    "features" = @(13.2, 2.7, 2.36, 21, 100, 2.98, 3.15, 0.22, 2.26, 6.5, 1.05, 3.33, 820)
+    "features" = @(0,0,0,0,0,0,0,0,0,0,0,0)
 } | ConvertTo-Json
 
-Invoke-RestMethod -Uri "http://localhost:8000/predict" -Method Post -Headers $headers -Body $body
+Invoke-RestMethod -Uri "http://127.0.0.1/:8000/predict" -Method Post -Headers $headers -Body $body
 
 # Dockerfile
 FROM python:3.9-slim
